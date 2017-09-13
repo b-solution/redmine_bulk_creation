@@ -5,6 +5,7 @@
     <script>
       $(function(){
           $('#issue_assigned_to_id').parent('p').before("<p>" + $('#issue_create_bulk_issues_wrap').html( ) + " </p>" )
+        $('#issue_create_bulk_issues_wrap').remove()
       })
     </script>
 <% end %>
