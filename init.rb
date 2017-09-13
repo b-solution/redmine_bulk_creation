@@ -9,8 +9,9 @@ end
 
 Rails.application.config.to_prepare do
   Issue.send(:include, RedmineBulkCreation::IssuePatch)
+  # ApplicationHelper.send(:include, RedmineBulkCreation::ApplicationHelperPatch)
   class RedmineBulkCreationHooks < Redmine::Hook::ViewListener
-    render_on :view_issues_form_details_top, :partial=> 'issues/bulk_creation'
+    render_on :view_issues_form_details_bottom, :partial=> 'issues/bulk_creation'
     def controller_issues_new_after_save(context = {})
       issue = context[:issue]
       params = context[:params]

@@ -1,5 +1,10 @@
 <% if @issue.new_record? %>
-    <p id="issue_is_private_wrap">
+    <p id="issue_create_bulk_issues_wrap">
       <%= form.check_box :create_bulk_issues, :no_label => true %><label class="inline" for="issue_create_bulk_issues" id="issue_create_bulk_issues_label">Create bulk issue</label>
     </p>
+    <script>
+      $(function(){
+          $('#issue_assigned_to_id').parent('p').before("<p>" + $('#issue_create_bulk_issues_wrap').html( ) + " </p>" )
+      })
+    </script>
 <% end %>
